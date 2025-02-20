@@ -1,9 +1,10 @@
 function customError() {
-  throw new Error("Custom error message");
   class ValidationError extends Error {
     constructor(message) {
       super(message);
       this.name = "ValidationError";
     }
   }
+  throw new ValidationError("Custom error message");
+
 }
