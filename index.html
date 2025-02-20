@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>upload tester</title>
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>upload tester</title>
+  </head>
+  <body>
+    <h2>GET</h2>
+    <form
+      action="https://salmin89.github.io/iframe-tester/"
+      method="get"
+      enctype="multipart/form-data"
+    >
+      <input type="file" />
 
-  <form action="https://salmin89.github.io/iframe-tester/" method="get" enctype="multipart/form-data">
-    <input type="file" >
+      <button>Submit</button>
+    </form>
 
-    <button>Submit</button>
-  </form>
-</body>
+    <h2>POST</h2>
+    <form
+      action="https://salmin89.github.io/iframe-tester/"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input type="file" />
+
+      <button>Submit</button>
+    </form>
+  </body>
 </html>
