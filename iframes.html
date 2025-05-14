@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>iframes</h1>
+
+    <iframe id="preiframe" src="about:blank" frameborder="0"></iframe>
+
+    <script>
+      // Create an iframe with about:blank
+      function createAndManipulateIframe() {
+        // Create the iframe element
+        const iframe = document.createElement("iframe");
+        return iframe;
+      }
+
+      function manipulateIframe(iframe) {
+        // Set the source to about:blank
+        iframe.src = "about:blank";
+
+        // Add some styling
+        iframe.style.width = "600px";
+        iframe.style.height = "400px";
+        iframe.style.border = "2px solid #3498db";
+
+        // Append the iframe to the document body
+        document.body.appendChild(iframe);
+
+        // Wait for the iframe to load
+        iframe.onload = function () {
+          // Get reference to the iframe's document
+          const iframeDocument =
+            iframe.contentDocument || iframe.contentWindow.document;
+
+          // Add content to the iframe document
+          iframeDocument.open();
+          iframeDocument.write(`
+<h1>Content inside dynamic iframe</h1>
+<div class="content">
+  <p>This iframe was created with <code>about:blank</code> and populated dynamically with JavaScript.</p>
+  <button id="add-content">Add Dynamic Content</button>
+  <div id="dynamic-content"></div>
+</div>
+`);
+          iframeDocument.close();
+
+          // Add event listener to the button inside the iframe
+          const addContentButton = iframeDocument.getElementById("add-content");
+          const dynamicContentDiv =
+            iframeDocument.getElementById("dynamic-content");
+          let clickCount = 0;
+
+          addContentButton.addEventListener("click", function () {
+            clickCount++;
+            const newElement = iframeDocument.createElement("p");
+            newElement.textContent = `This is dynamically added content #${clickCount}`;
+            dynamicContentDiv.appendChild(newElement);
+
+            // Add some animated effect
+            newElement.style.opacity = "0";
+            newElement.style.transition = "opacity 0.5s ease-in-out";
+
+            // Force reflow
+            newElement.offsetHeight;
+
+            // Make visible with animation
+            newElement.style.opacity = "1";
+          });
+        };
+
+        return iframe;
+      }
+
+     
+
+      // You can also interact with the iframe from the parent page
+      function addContentFromParent(iframe) {
+        const iframeDocument =
+          iframe.contentDocument || iframe.contentWindow.document;
+        const dynamicContentDiv =
+          iframeDocument.getElementById("dynamic-content");
+
+        if (dynamicContentDiv) {
+          const parentAddedElement = iframeDocument.createElement("p");
+          parentAddedElement.textContent =
+            "This content was added from the parent page!";
+          parentAddedElement.style.color = "green";
+          parentAddedElement.style.fontWeight = "bold";
+          dynamicContentDiv.appendChild(parentAddedElement);
+        }
+      }
+
+      // Example usage: You can call this function to add content from the parent page
+      const dynamicIframe = createAndManipulateIframe();
+      manipulateIframe(dynamicIframe);
+      addContentFromParent(dynamicIframe);
+
+
+      const preIframe = document.getElementById("preiframe");
+      manipulateIframe(preIframe);
+      addContentFromParent(preIframe);
+    </script>
+  </body>
+</html>
