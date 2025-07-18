@@ -12,73 +12,17 @@
 
     <script>
       function printPartOfPage() {
-        var windowUrl = "about:blank";
-        var uniqueName = new Date();
-        var windowName = "Print" + uniqueName.getTime();
-        var printWindow = window.open(
+        const windowUrl = "about:blank";
+        const uniqueName = new Date();
+        const windowName = "Print" + uniqueName.getTime();
+        const printWindow = window.open(
           windowUrl,
           windowName,
           "left=50000,top=50000,width=0,height=0"
         );
         printWindow.document.write(
-          '<html><head><style type="text/css">table, th, td { font-family: Arial; font-size:12px;border: 0px solid; padding:5px; color:#000;}'
+          "<html><head></head><body><h1>hello world</h1></body></html>"
         );
-        printWindow.document.write(
-          "img { display: none;} .dropdown { width: 100%; color:#000; }"
-        );
-        printWindow.document.write(
-          " select { -webkit-appearance: none; color:#000; height:22px; }   @-moz-document url-prefix() { .dropdown { border: 1px solid #000; border-radius: 4px; box-sizing: border-box; position: relative; overflow: hidden;}"
-        );
-        printWindow.document.write(
-          " dropdown select { width: 110%; background-position: right 30px center !important; border: none !important; color:#000;}}"
-        );
-        printWindow.document.write(
-          " input {border-top-style: hidden; border-right-style: hidden; border-left-style: hidden;border-bottom-style: hidden; background-color: none;}"
-        );
-        printWindow.document.write(
-          "input,select { background: transparent; border: none; }"
-        );
-        printWindow.document.write(
-          ' input[type="image"] { visibility: hidden;}  no-outline:focus {outline: none;}'
-        );
-        printWindow.document.write(
-          ".viewcontainer{margin-top:20px; width:90%;  padding:20px;  background-color:#fff; text-align: center;}"
-        );
-        printWindow.document.write(
-          ".h1 { color: #000; font-family: arial, sans-serif; font-size: 12px; font-weight: bold; margin-top: 0px; margin-bottom: 1px;}"
-        );
-        printWindow.document.write(
-          ".h2 { color: #000; font-family: arial, sans-serif; font-size: 12px; font-weight: bold; margin-top: 0px; margin-bottom: 1px;text-align: left!important;display:block; background-color:lightgray; padding:5px;}"
-        );
-        printWindow.document.write(
-          ".customersheader {margin-top: 20px; font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%; margin-bottom: 30px; text-align: left;}"
-        );
-        printWindow.document.write(
-          ".customersheader td {border: none; padding: 8px;}"
-        );
-        printWindow.document.write(
-          ".subheadersinglecolumn {margin-top:20px; font-family: Arial, Helvetica, sans-serif; border-collapse: collapse;width: 100%;margin-bottom:60px; text-align: justify;}"
-        );
-        printWindow.document.write(
-          ".subheadersinglecolumn td {border: none; padding: 8px;}"
-        );
-        printWindow.document.write(
-          ".customers {margin-top:20px;font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;margin-bottom:20px;}"
-        );
-        printWindow.document.write(
-          " customers td, .customers th { border: 1px solid #000; padding: 8px;}"
-        );
-        printWindow.document.write(
-          ".customers tr:nth-child(even){background-color: #f1f1f1;}"
-        );
-        printWindow.document.write(
-          ".customers tr:hover {background-color: #ddd;}"
-        );
-        printWindow.document.write(
-          ".customers th {padding-top: 12px; padding-bottom: 12px; background-color: #2a4f82; color: black;}"
-        );
-        printWindow.document.write(" </style></head><body>");
-        printWindow.document.write("</body></html>");
         printWindow.document.close();
         printWindow.focus();
         printWindow.print();
