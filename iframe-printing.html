@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>about-blank-printing</h1>
+
+  <button onclick="printPartOfPage()">print</button>
+
+  <script>
+    function printPartOfPage() {
+      const iframe = document.createElement('iframe');
+      iframe.src = "iframe-printing-frame.html";
+      document.body.appendChild(iframe);
+      document.body.removeChild(iframe);
+    }
+  </script>
+</body>
+
+</html>
