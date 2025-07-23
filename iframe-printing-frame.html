@@ -6,6 +6,14 @@
   <script>
     window.print();
     window.close();
+
+    try {
+      if (window.frameElement) {
+        window.frameElement.remove();
+      }
+    } catch (e) {
+      console.log('Cannot remove iframe due to cross-origin restrictions');
+    }
   </script>
 
   <meta charset="UTF-8" />
@@ -14,9 +22,8 @@
 </head>
 
 <body>
-  <h1>iframe</h1>
+  <h1>iframed</h1>
 
-  <button onclick="printPartOfPage()">print</button>
 
 </body>
 
