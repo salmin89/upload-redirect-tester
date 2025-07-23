@@ -7,6 +7,16 @@
     window.print();
     window.close();
 
+    window.addEventListener('beforeprint', () => {
+      try {
+        if (window.frameElement) {
+          
+        }
+      } catch (e) {
+        console.log('Cannot remove iframe due to cross-origin restrictions');
+      }
+    })
+
 
   </script>
 
@@ -17,17 +27,6 @@
 
 <body>
   <h1>iframed</h1>
-
-
-  <script>
-    try {
-      if (window.frameElement) {
-        window.frameElement.remove();
-      }
-    } catch (e) {
-      console.log('Cannot remove iframe due to cross-origin restrictions');
-    }
-  </script>
 </body>
 
 </html>
