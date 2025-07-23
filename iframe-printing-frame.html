@@ -10,7 +10,7 @@
     window.addEventListener('beforeprint', () => {
       try {
         if (window.frameElement) {
-          
+          window.frameElement.remove();
         }
       } catch (e) {
         console.log('Cannot remove iframe due to cross-origin restrictions');
