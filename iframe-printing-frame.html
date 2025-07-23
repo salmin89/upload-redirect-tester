@@ -7,13 +7,7 @@
     window.print();
     window.close();
 
-    try {
-      if (window.frameElement) {
-        window.frameElement.remove();
-      }
-    } catch (e) {
-      console.log('Cannot remove iframe due to cross-origin restrictions');
-    }
+
   </script>
 
   <meta charset="UTF-8" />
@@ -25,6 +19,15 @@
   <h1>iframed</h1>
 
 
+  <script>
+    try {
+      if (window.frameElement) {
+        window.frameElement.remove();
+      }
+    } catch (e) {
+      console.log('Cannot remove iframe due to cross-origin restrictions');
+    }
+  </script>
 </body>
 
 </html>
