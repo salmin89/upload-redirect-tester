@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <h1>about-blank-printing</h1>
+  <h1>iframe-printing</h1>
 
   <button onclick="printPartOfPage()">print</button>
 
@@ -17,7 +17,6 @@
       const iframe = document.createElement('iframe');
       iframe.src = "iframe-printing-frame.html";
       document.body.appendChild(iframe);
-      document.body.removeChild(iframe);
     }
   </script>
 </body>
